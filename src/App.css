@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0f7fa; /* Couleur de l'océan */
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.texte {
+  position: absolute; /* Nécessaire pour un positionnement précis */
+  top: 40px; /* Distance depuis le haut */
+  left: 50%; /* Centre horizontalement */
+  transform: translateX(-50%); /* Ajuste pour centrer parfaitement */
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center; /* Aligne le texte au centre */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ajoute une ombre subtile */
+}
+
+.ocean-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.main-content {
+  text-align: center;
+  z-index: 1;
+}
+
+.cleaning-puzzle {
+  margin-bottom: 20px;
+}
+
+.input-container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.plastic-net {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #00695c;
+  transition: opacity 1s ease;
+}
+
+.input-container.unlocked .plastic-net {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #00695c;
+  border-radius: 5px;
+}
+
+.input-field.disabled {
+  background: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+
+.input-field.enabled {
+  animation: wave 0.2s infinite ease-in-out; /* Effet de vague */
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
